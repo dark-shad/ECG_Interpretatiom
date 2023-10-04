@@ -50,17 +50,15 @@ async def read_index():
 class FileUpload(BaseModel):
     file: UploadFile
 
-
 @app.post("/uploadPicture")
-async def UploadImage(mypic1:UploadFile=File(...)):
+async def UploadImage(mypic1: UploadFile = File(...)):
     mypic1.filename = f"{uuid.uuid4()}.png"
-    contents1 = await mypic1.read()
-    with open(f"{IMAGEDIR}{mypic1.filename}","wb") as f:
+    contents1 = mypic1.file.read()
+    with open(f"{IMAGEDIR}{mypic1.filename}", "wb") as f:
         f.write(contents1)
-    image1_data = Image.open('imagesnew/' + mypic1.filename)
     
     # Process the uploaded image
-    image = Image.open(io.BytesIO(await image1_data))
+    image = Image.open(io.BytesIO(contents1))
     image = image.resize((256, 256)).convert('L')
     image_array = np.array(image) / 255.0
     image_array = np.expand_dims(image_array, axis=0)  # Add batch dimension
@@ -71,6 +69,27 @@ async def UploadImage(mypic1:UploadFile=File(...)):
     predicted_label = class_labels[predicted_label_index]
 
     return {"predicted_label": predicted_label, "probabilities": predicted_probs.tolist()}
+
+# @app.post("/uploadPicture1")
+# async def UploadImage(mypic1:UploadFile=File(...)):
+#     mypic1.filename = f"{uuid.uuid4()}.png"
+#     contents1 = mypic1.file.read()
+#     with open(f"{IMAGEDIR}{mypic1.filename}","wb") as f:
+#         f.write(contents1)
+#     image1_data = Image.open('imagesnew/' + mypic1.filename)
+    
+#     # Process the uploaded image
+#     image = Image.open(io.BytesIO(image1_data))
+#     image = image.resize((256, 256)).convert('L')
+#     image_array = np.array(image) / 255.0
+#     image_array = np.expand_dims(image_array, axis=0)  # Add batch dimension
+
+#     # Make predictions using your model
+#     predicted_probs = model.predict(image_array)
+#     predicted_label_index = np.argmax(predicted_probs)
+#     predicted_label = class_labels[predicted_label_index]
+
+#     return {"predicted_label": predicted_label, "probabilities": predicted_probs.tolist()}
 
 if __name__ == "__main__":
     import uvicorn
