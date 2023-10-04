@@ -26,6 +26,7 @@ import uuid
 
 app = FastAPI()
 IMAGEDIR = 'imagesnew/'
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Enable CORS (Cross-Origin Resource Sharing)
 app.add_middleware(
