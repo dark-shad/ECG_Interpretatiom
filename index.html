@@ -153,35 +153,35 @@
   </section>
   <!-- End Projects Section -->
 
-  <!-- About Section -->
-  <section id="about">
-    <div class="about container">
-      <div class="col-left">
-        <div class="about-img">
-          <img src="static/images/report.png" alt="img">
-        </div>
-      </div>
-      <div class="col-right">
-        <h1 class="section-title">Upload <span>ECG Report</span></h1>
-        <div class="formUpload">
-          <form class="uplaod-display" method="post" action="/uploadPicture" enctype="multipart/form-data">
-             <div class="formOrient">
-                <p>Upload the ECG Graph</p>
-                <input class="link-btn glass" name="mypic1" id="file1" type="file"><br><br>
-             </div>
-             <div class="formOrient">
-                <br><br>
-                <input class="cta" type="submit" value="Upload" name="submit">
-             </div>
-          </form>
-       </div>
-      </div>
-        
-        <a href="#" class="cta">Upload</a>
+ <!-- About Section -->
+<section id="about">
+  <div class="about container">
+    <div class="col-left">
+      <div class="about-img">
+        <img src="static/images/report.png" alt="img">
       </div>
     </div>
-  </section>
-  <!-- End About Section -->
+    <div class="col-right">
+      <h1 class="section-title">Upload <span>ECG Report</span></h1>
+      <!-- Add the following HTML form for file upload -->
+      <div class="formUpload">
+        <form class="uplaod-display" method="post" action="/upload.php" enctype="multipart/form-data">
+          <div class="formOrient">
+            <p>Upload the ECG Graph</p>
+            <input class="link-btn glass" name="mypic1" id="file1" type="file"><br><br>
+            <textarea name="description" placeholder="Add a description (optional)"></textarea>
+          </div>
+          <div class="formOrient">
+            <br><br>
+            <input class="cta" type="submit" value="Upload" name="submit">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+
 
   <!-- Contact Section -->
   <section id="contact">
