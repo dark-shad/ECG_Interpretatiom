@@ -6,7 +6,8 @@ This repository provides a machine learning model for classifying ECG (Electroca
 
 ## Introduction
 
-An Electrocardiogram (ECG) is a valuable diagnostic tool used to assess the electrical activity of the heart. This project combines machine learning with a user-friendly web interface to classify ECG images and provide potential diagnoses based on the captured data.
+- An Electrocardiogram (ECG) is a valuable diagnostic tool used to assess the electrical activity of the heart. 
+- This project combines machine learning with a user-friendly web interface to classify ECG images and provide potential diagnoses based on the captured data.
 
 ## Setup
 
