@@ -63,7 +63,7 @@ p {
 	background-color: crimson;
 }
 .brand h1 {
-	font-size: 3rem;
+	font-size: 2rem;
 	text-transform: uppercase;
 	color: white;
 }
@@ -486,6 +486,9 @@ p {
 	font-weight: 500;
 	margin-bottom: 5px;
 }
+#contact .contact-info a {
+	color: black;
+}
 #contact .contact-info h2 {
 	font-size: 1.3rem;
 	line-height: 2rem;
@@ -576,7 +579,9 @@ p {
 	h1.section-title {
 		font-size: 6rem;
 	}
-
+	.brand h1 {
+		font-size: 2rem;
+	}
 	/* Hero */
 	#hero h1 {
 		font-size: 7rem;
@@ -677,6 +682,9 @@ p {
 	/* header */
 	#header .hamburger {
 		display: none;
+	}
+	.brand h1 {
+		font-size: 3rem;
 	}
 	#header .nav-list ul {
 		position: initial;
