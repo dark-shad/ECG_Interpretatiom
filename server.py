@@ -1,4 +1,6 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File,Request
+from fastapi.templating import Jinja2Templates
+templates = Jinja2Templates(directory="templates")
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 import numpy as np
@@ -51,7 +53,7 @@ class FileUpload(BaseModel):
     file: UploadFile
 
 @app.post("/uploadPicture")
-async def UploadImage(mypic1: UploadFile = File(...)):
+async def UploadImage(request: Request, mypic1: UploadFile = File(...)):
     mypic1.filename = f"{uuid.uuid4()}.png"
     contents1 = mypic1.file.read()
     with open(f"{IMAGEDIR}{mypic1.filename}", "wb") as f:
@@ -67,8 +69,9 @@ async def UploadImage(mypic1: UploadFile = File(...)):
     predicted_probs = model.predict(image_array)
     predicted_label_index = np.argmax(predicted_probs)
     predicted_label = class_labels[predicted_label_index]
+    print(predicted_probs)
+    return templates.TemplateResponse("result.html", {"request": request, "predicted_label": predicted_label, "probabilities": predicted_probs,"class_labels":class_labels})
 
-    return {"predicted_label": predicted_label, "probabilities": predicted_probs.tolist()}
 
 # @app.post("/uploadPicture1")
 # async def UploadImage(mypic1:UploadFile=File(...)):

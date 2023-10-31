@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECG Interpreter</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="static/images/icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    
+    <h1>Image Upload Result</h1>
+    <p>Predicted Label: {{ predicted_label }}</p>
+    
+    <h2>Probabilities:</h2>
+    <table border="1px">
+        <tr>
+            <th>Class Label</th>
+            <th>Probability</th>
+        </tr>
+        {% for i in range(probabilities[0]|length) %}
+            <tr>
+                <td>{{class_labels[i]}}</td>
+                <td>{{ probabilities[0][i] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
