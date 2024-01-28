@@ -78,37 +78,37 @@ async def UploadImage(request: Request, mypic1: UploadFile = File(...)):
         result_message = "Case F: Handle something for label F"
         # return result_message
         # return FileResponse('s.html')
-        return FileResponse('f.html')
+        return FileResponse('templates/f.html')
 
     elif predicted_label == 'M':
         result_message = "Case M: Handle something for label M"
         # Additional logic for case M
         # return result_message
-        return FileResponse('m.html')
+        return FileResponse('templates/m.html')
 
     elif predicted_label == 'N':
         result_message = "Case n: Handle something for label N"
         # Additional logic for case M
         # return result_message
-        return FileResponse('n.html')
+        return FileResponse('templates/n.html')
 
     elif predicted_label == 'V':
         result_message = "Case v: Handle something for label V"
         # Additional logic for case M
         # return result_message
-        return FileResponse('v.html')
+        return FileResponse('templates/v.html')
     
     elif predicted_label == 'S':
         result_message = "Case s: Handle something for label S"
         # Additional logic for case M
         # return result_message
-        return FileResponse('s.html')
+        return FileResponse('templates/s.html')
 
     elif predicted_label == 'Q':
         result_message = "Case q: Handle something for label Q"
         # Additional logic for case M
         # return result_message
-        return FileResponse('q.html')
+        return FileResponse('templates/q.html')
 
 
     # Add more cases as needed
