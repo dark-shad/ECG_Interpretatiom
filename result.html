@@ -1,2 +1,17 @@
-<!-- add result pages for the labels -->
-class_labels = ['F', 'M', 'N', 'Q', 'S', 'V']
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG Beat Classification Result</title>
+</head>
+<body>
+    <h1>ECG Beat Classification Result</h1>
+    <h2>Predicted Beat Labels:</h2>
+    <ul>
+        {% for label in beat_labels %}
+            <li>{{ label }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
